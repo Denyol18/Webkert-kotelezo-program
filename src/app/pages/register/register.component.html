@@ -1,6 +1,6 @@
 <div>
   <h1>Regisztráció</h1>
-  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="registerForm">
     <input formControlName="lastname" type="text" placeholder="Vezetéknév"/> <br/><br/>
     <input formControlName="firstname" type="text" placeholder="Keresztnév"/> <br/><br/>
     <input formControlName="email" type="email" placeholder="E-mail cím"/> <br/><br/>
@@ -12,7 +12,7 @@
       <option *ngFor="let phoneType of phoneTypeList" [ngValue]="phoneType">{{ phoneType }}</option>
     </select> <br/><br/>
     <input formControlName="address" type="text" placeholder="Cím"/> <br/><br/>
-    <button type="submit">Regisztráció</button> <br/><br/>
+    <button (click)="register()">Regisztráció</button> <br/><br/>
     <button (click)="goBack()">Vissza</button>
   </form>
 </div>

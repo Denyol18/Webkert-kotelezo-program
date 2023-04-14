@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
+import {AuthService} from "../../shared/services/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent {
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private authService: AuthService) {
   }
 
   loginForm = new FormGroup({
@@ -17,13 +18,20 @@ export class LoginComponent {
     password: new FormControl('')
   });
 
-  onSubmit() {
+
+  login() {
     if(this.loginForm.get('email')?.value && this.loginForm.get('password')?.value) {
-      console.log(this.loginForm.value);
-      this.router.navigateByUrl('/home');
+      this.authService.login(String(this.loginForm.get('email')?.value),
+        String(this.loginForm.get('password')?.value)).then(cred => {
+        console.log(cred);
+        this.router.navigateByUrl('/home');
+      }).catch(error => {
+        console.error(error);
+      });
     }
     else {
-      console.error('no bueno');
+      console.error('Minden mező kitöltése kötelező!');
     }
   }
+
 }

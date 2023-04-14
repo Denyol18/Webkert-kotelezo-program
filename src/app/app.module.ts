@@ -12,11 +12,12 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './shared/menu/menu.component';
 import { FormsModule } from "@angular/forms";
 import { MenuBeforeAuthComponent } from './shared/menu-before-auth/menu-before-auth.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+//import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import {AngularFireModule} from "@angular/fire/compat";
 //import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
@@ -36,7 +37,8 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    AngularFireModule.initializeApp(environment.firebase),
+    //provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage())

@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.authService.isUserLoggedIn().subscribe(user => {
+      console.log(user);
       this.loggedInUser = user;
     }, error => {
       console.error(error);

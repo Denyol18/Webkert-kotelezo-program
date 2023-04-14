@@ -1,4 +1,4 @@
-<select #pageValue (change)="menuSwitch(pageValue.value)">
+<select [(ngModel)]="currentPage" (change)="menuSwitch()">
   <option value="home">Home</option>
   <option value="appointmentbook">Időpontfoglalás</option>
   <option value="myappointments">Időpontjaim</option>

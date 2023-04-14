@@ -1,4 +1,15 @@
-<ng-template [ngIf]="page === 'login' || page === 'register'">
+<ng-template [ngIf]="page === 'login' || page === 'register' || page === 'not-found'">
+  <app-menu-before-auth (selectedPage)="changePage($event)" [currentPage]="page"></app-menu-before-auth>
+</ng-template>
+
+
+<ng-template [ngIf]="page === 'home' || page === 'appointmentbook' || page === 'myappointments' || page === 'contacts'
+ || page === 'not-found'">
+  <app-menu (selectedPage)="changePage($event)" [currentPage]="page"></app-menu>
+</ng-template>
+
+
+<!-- <ng-template [ngIf]="page === 'login' || page === 'register'">
   <app-menu-before-auth (selectedPage)="changePage($event)"></app-menu-before-auth>
 
   <ng-template [ngIf]="page === 'login'">
@@ -48,7 +59,7 @@
     </ng-container>
 
   </ng-container>
-</ng-template>
+</ng-template> -->
 
 
-<!--  <router-outlet></router-outlet> -->
+<router-outlet></router-outlet>

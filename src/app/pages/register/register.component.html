@@ -1,18 +1,19 @@
 <div>
   <h1>Regisztráció</h1>
-  <form method="POST">
-    <input type="text" name="lastname" placeholder="Vezetéknév" required/> <br/><br/>
-    <input type="text" name="firstname" placeholder="Keresztnév" required/> <br/><br/>
-    <input type="email" name="email" placeholder="E-mail cím" required/> <br/><br/>
-    <input type="password" name="passwd" placeholder="Jelszó" required/> <br/><br/>
-    <input type="password" name="passwdconfirm" placeholder="Jelszó megerősítése" required/> <br/><br/>
-    <input type="tel" name="phonenumber" placeholder="Telefonszám" required/> <br/><br/>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <input formControlName="lastname" type="text" placeholder="Vezetéknév"/> <br/><br/>
+    <input formControlName="firstname" type="text" placeholder="Keresztnév"/> <br/><br/>
+    <input formControlName="email" type="email" placeholder="E-mail cím"/> <br/><br/>
+    <input formControlName="password" type="password" placeholder="Jelszó"/> <br/><br/>
+    <input formControlName="passwordconfirm" type="password" placeholder="Jelszó megerősítése"/> <br/><br/>
+    <input formControlName="phonenumber" type="tel" placeholder="Telefonszám"/> <br/><br/>
     <label for="phone_type_selector">Telefon típus: </label>
-    <select id="phone_type_selector" name="phone_type_selector" [(ngModel)]="chosenPhoneType">
+    <select formControlName="phonetype" id="phone_type_selector" [(ngModel)]="chosenPhoneType">
       <option *ngFor="let phoneType of phoneTypeList" [ngValue]="phoneType">{{ phoneType }}</option>
     </select> <br/><br/>
-    <input type="text" name="address" placeholder="Cím" required/> <br/><br/>
-    <input type="submit" value="Regisztráció"/>
+    <input formControlName="address" type="text" placeholder="Cím"/> <br/><br/>
+    <button type="submit">Regisztráció</button> <br/><br/>
+    <button (click)="goBack()">Vissza</button>
   </form>
 </div>
 

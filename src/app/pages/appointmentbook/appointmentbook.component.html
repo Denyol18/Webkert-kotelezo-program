@@ -1,14 +1,14 @@
 <div>
   <h1>Időpontfoglalás</h1>
-  <form method="post">
+  <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
     <label for="device_selector">Megvizsgálni kívánt eszköz: </label>
-    <select id="device_selector" name="device_selector" [(ngModel)]="chosenDevice">
+    <select id="device_selector" formControlName="device" [(ngModel)]="chosenDevice">
       <option *ngFor="let device of deviceList" [ngValue]="device">{{ device }}</option>
     </select> <br/><br/>
     <label for="datetime">Válasszon időpontot!</label>
-    <input type="datetime-local" id="datetime" required> <br/><br/>
-    <textarea name="description" rows="5" cols="75" maxlength="200"
+    <input formControlName="date" type="datetime-local" id="datetime" required> <br/><br/>
+    <textarea formControlName="description" rows="5" cols="75" maxlength="200"
               placeholder="Probléma leírása, egyéb eszköz esetén az eszközt is tűntesse fel itt!" required></textarea> <br/><br/>
-    <input type="submit" value="Időpontfoglalás"/>
+    <button type="submit">Időpontfoglalás</button>
   </form>
 </div>

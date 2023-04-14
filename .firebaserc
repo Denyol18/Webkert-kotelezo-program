@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "webkert-electronics-service": {
+      "hosting": {
+        "electronics-service": [
+          "webkert-electronics-service"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "webkert-electronics-service"
+  }
+}

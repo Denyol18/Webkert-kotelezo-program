@@ -1,0 +1,18 @@
+<div>
+  <h1>Regisztráció</h1>
+  <form method="POST">
+    <input type="text" name="lastname" placeholder="Vezetéknév" required/> <br/><br/>
+    <input type="text" name="firstname" placeholder="Keresztnév" required/> <br/><br/>
+    <input type="email" name="email" placeholder="E-mail cím" required/> <br/><br/>
+    <input type="password" name="passwd" placeholder="Jelszó" required/> <br/><br/>
+    <input type="password" name="passwdconfirm" placeholder="Jelszó megerősítése" required/> <br/><br/>
+    <input type="tel" name="phonenumber" placeholder="Telefonszám" required/> <br/><br/>
+    <label for="phone_type_selector">Telefon típus: </label>
+    <select id="phone_type_selector" name="phone_type_selector" [(ngModel)]="chosenPhoneType">
+      <option *ngFor="let phoneType of phoneTypeList" [ngValue]="phoneType">{{ phoneType }}</option>
+    </select> <br/><br/>
+    <input type="text" name="address" placeholder="Cím" required/> <br/><br/>
+    <input type="submit" value="Regisztráció"/>
+  </form>
+</div>
+

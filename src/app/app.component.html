@@ -1,0 +1,54 @@
+<ng-template [ngIf]="page === 'login' || page === 'register'">
+  <app-menu-before-auth (selectedPage)="changePage($event)"></app-menu-before-auth>
+
+  <ng-template [ngIf]="page === 'login'">
+    <div class="height_config">
+      <app-login></app-login>
+    </div>
+  </ng-template>
+
+  <ng-template [ngIf]="page === 'register'">
+    <div class="height_config">
+      <app-register></app-register>
+    </div>
+  </ng-template>
+
+</ng-template>
+
+<ng-template [ngIf]="page === 'home' || page === 'appointmentbook' || page === 'myappointments' || page === 'contacts'">
+  <ng-container [ngSwitch]="page">
+    <app-menu (selectedPage)="changePage($event)"></app-menu>
+
+    <ng-container *ngSwitchCase="'home'">
+      <div class="height_config">
+        <app-home></app-home>
+      </div>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'appointmentbook'">
+      <div class="height_config">
+        <app-appointmentbook></app-appointmentbook>
+      </div>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'myappointments'">
+      <div class="height_config">
+        <app-myappointments></app-myappointments>
+      </div>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'contacts'">
+      <div class="height_config">
+        <app-contacts></app-contacts>
+      </div>
+    </ng-container>
+
+    <ng-container *ngSwitchDefault>
+      <h1>Page not found</h1>
+    </ng-container>
+
+  </ng-container>
+</ng-template>
+
+
+<!--  <router-outlet></router-outlet> -->

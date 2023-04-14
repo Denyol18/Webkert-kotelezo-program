@@ -1,0 +1,17 @@
+div {
+  height: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+h1 {
+  margin: 100px;
+}
+
+#paragraph_div {
+  margin: 100px;
+}
+
+#paragraph_div > p {
+  margin: 10px 200px;
+}

@@ -1,15 +1,28 @@
 <div>
   <h1>Időpontfoglalás</h1>
   <form [formGroup]="appointmentForm">
-    <label for="device_selector">Megvizsgálni kívánt eszköz: </label>
-    <select formControlName="device" id="device_selector" [(ngModel)]="chosenDevice">
-      <option *ngFor="let device of deviceList" [ngValue]="device">{{ device }}</option>
-    </select> <br/><br/>
-    <label for="datetime">Válasszon időpontot!</label>
-    <input formControlName="date" type="datetime-local" id="datetime" required> <br/><br/>
-    <textarea formControlName="description" rows="5" cols="75" maxlength="200"
-              placeholder="Probléma leírása, egyéb eszköz esetén az eszközt is tűntesse fel itt!" required></textarea> <br/><br/>
-    <button (click)="bookAppointment()">Időpontfoglalás</button> <br/><br/>
-    <button (click)="backToHome()">Vissza</button>
+    <mat-form-field>
+      <mat-label>Megvizsgálni kívánt eszköz: </mat-label>
+      <mat-select formControlName="device" id="device_selector" [(ngModel)]="chosenDevice">
+        <mat-option *ngFor="let device of deviceList" [value]="device">{{ device }}</mat-option>
+      </mat-select>
+    </mat-form-field> <br/><br/>
+
+    <mat-form-field>
+      <mat-label>Válasszon időpontot!</mat-label>
+      <input matInput formControlName="date" placeholder="HH/NN/ÉÉÉÉ" [matDatepicker]="picker" required>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field> <br/><br/>
+
+    <mat-form-field>
+      <mat-label>Leírás</mat-label>
+      <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="5"
+                cdkAutosizeMaxRows="10" formControlName="description"
+                placeholder="Probléma leírása, egyéb eszköz esetén az eszközt is tűntesse fel itt!" required></textarea>
+    </mat-form-field> <br/><br/>
+
+    <button mat-raised-button color="primary" (click)="bookAppointment()">Időpontfoglalás</button> <br/><br/>
+    <button mat-raised-button color="primary" (click)="backToHome()">Vissza</button>
   </form>
 </div>

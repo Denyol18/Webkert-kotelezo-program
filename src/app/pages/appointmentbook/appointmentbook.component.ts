@@ -50,7 +50,7 @@ export class AppointmentbookComponent implements OnInit{
         id: '',
         user: this.user as User,
         device: this.appointmentForm.get('device')?.value as string,
-        date: this.appointmentForm.get('date')?.value as string,
+        date: this.appointmentForm.get('date')?.value as unknown as Date,
         description: this.appointmentForm.get('description')?.value as string
       }
 

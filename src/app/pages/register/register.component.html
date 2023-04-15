@@ -1,19 +1,52 @@
 <div>
   <h1>Regisztráció</h1>
   <form [formGroup]="registerForm">
-    <input formControlName="lastname" type="text" placeholder="Vezetéknév"/> <br/><br/>
-    <input formControlName="firstname" type="text" placeholder="Keresztnév"/> <br/><br/>
-    <input formControlName="email" type="email" placeholder="E-mail cím"/> <br/><br/>
-    <input formControlName="password" type="password" placeholder="Jelszó"/> <br/><br/>
-    <input formControlName="passwordconfirm" type="password" placeholder="Jelszó megerősítése"/> <br/><br/>
-    <input formControlName="phonenumber" type="tel" placeholder="Telefonszám"/> <br/><br/>
-    <label for="phone_type_selector">Telefon típus: </label>
-    <select formControlName="phonetype" id="phone_type_selector" [(ngModel)]="chosenPhoneType">
-      <option *ngFor="let phoneType of phoneTypeList" [ngValue]="phoneType">{{ phoneType }}</option>
-    </select> <br/><br/>
-    <input formControlName="address" type="text" placeholder="Cím"/> <br/><br/>
-    <button (click)="register()">Regisztráció</button> <br/><br/>
-    <button (click)="backToLogin()">Vissza</button>
+
+    <mat-form-field>
+      <mat-label>Vezetéknév</mat-label>
+      <input matInput formControlName="lastname" type="text" required/>
+    </mat-form-field> <br/><br/>
+
+    <mat-form-field>
+      <mat-label>Keresztnév</mat-label>
+      <input matInput formControlName="firstname" type="text" required/>
+    </mat-form-field> <br/><br/>
+
+    <mat-form-field>
+      <mat-label>E-mail cím</mat-label>
+      <input matInput formControlName="email" type="email" required/>
+    </mat-form-field> <br/><br/>
+
+    <mat-form-field>
+      <mat-label>Jelszó</mat-label>
+      <input matInput formControlName="password" type="password" required/>
+    </mat-form-field> <br/><br/>
+
+    <mat-form-field>
+      <mat-label>Jelszó megerősítése</mat-label>
+      <input matInput formControlName="passwordconfirm" type="password" required/>
+    </mat-form-field> <br/><br/>
+
+    <mat-form-field>
+      <mat-label>Telefonszám</mat-label>
+      <input matInput formControlName="phonenumber" type="tel" required/>
+    </mat-form-field> <br/><br/>
+
+    <mat-form-field>
+      <mat-label>Telefon típus:</mat-label>
+      <mat-select formControlName="phonetype" id="phone_type_selector" [(ngModel)]="chosenPhoneType">
+        <mat-option *ngFor="let phoneType of phoneTypeList" [value]="phoneType">{{ phoneType }}</mat-option>
+      </mat-select>
+    </mat-form-field> <br/><br/>
+
+
+    <mat-form-field>
+      <mat-label>Cím</mat-label>
+      <input matInput formControlName="address" type="text" required/>
+    </mat-form-field> <br/><br/>
+
+    <button mat-raised-button color="primary" (click)="register()">Regisztráció</button> <br/><br/>
+    <button mat-raised-button color="primary" (click)="backToLogin()">Vissza</button>
   </form>
 </div>
 

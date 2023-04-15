@@ -4,6 +4,6 @@ export interface Appointment {
   id: string;
   user: User;
   device: string;
-  date: string;
+  date: Date;
   description: string;
 }

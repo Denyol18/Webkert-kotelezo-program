@@ -1,4 +1,5 @@
-$formContentMargin: 10px;
+$h1_margin: 100px;
+$button_margin: 20px;
 
 div {
   height: 100%;
@@ -7,13 +8,9 @@ div {
 }
 
 h1 {
-  margin: 100px;
-}
-
-input {
-  margin: $formContentMargin;
+  margin: $h1_margin;
 }
 
 button {
-  margin: $formContentMargin;
+  margin: $button_margin;
 }

@@ -1,9 +1,7 @@
-<div>
+<div class="main_component">
   <h1>Üdvözöljük!</h1>
-  <div id="button_div">
-    <button (click)="toAppointmentBook()"><strong>Időpontfoglalás</strong></button> <br/><br/>
-    <button (click)="toMyAppointments()"><strong>Időpontjaim</strong></button> <br/><br/>
-    <button (click)="toContacts()"><strong>Elérhetőségek</strong></button> <br/><br/>
-    <button (click)="logout()">Kijelentkezés</button>
-  </div>
+  <button mat-raised-button color="primary" (click)="toAppointmentBook()"><strong>Időpontfoglalás</strong></button> <br/><br/>
+  <button mat-raised-button color="primary" (click)="toMyAppointments()"><strong>Időpontjaim</strong></button> <br/><br/>
+  <button mat-raised-button color="primary" (click)="toContacts()"><strong>Elérhetőségek</strong></button> <br/><br/>
+  <button mat-raised-button color="primary" (click)="logout()">Kijelentkezés</button>
 </div>

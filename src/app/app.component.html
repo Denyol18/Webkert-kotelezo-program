@@ -1,65 +1,30 @@
-<ng-template [ngIf]="page === 'login' || page === 'register' || page === 'not-found'">
-  <app-menu-before-auth (selectedPage)="changePage($event)" [currentPage]="page"></app-menu-before-auth>
-</ng-template>
-
-
-<ng-template [ngIf]="page === 'home' || page === 'appointmentbook' || page === 'myappointments' || page === 'contacts'
- || page === 'not-found'">
-  <app-menu (selectedPage)="changePage($event)" [currentPage]="page"></app-menu>
-</ng-template>
-
-
-<!-- <ng-template [ngIf]="page === 'login' || page === 'register'">
-  <app-menu-before-auth (selectedPage)="changePage($event)"></app-menu-before-auth>
-
-  <ng-template [ngIf]="page === 'login'">
-    <div class="height_config">
-      <app-login></app-login>
-    </div>
-  </ng-template>
-
-  <ng-template [ngIf]="page === 'register'">
-    <div class="height_config">
-      <app-register></app-register>
-    </div>
-  </ng-template>
-
-</ng-template>
-
-<ng-template [ngIf]="page === 'home' || page === 'appointmentbook' || page === 'myappointments' || page === 'contacts'">
-  <ng-container [ngSwitch]="page">
-    <app-menu (selectedPage)="changePage($event)"></app-menu>
-
-    <ng-container *ngSwitchCase="'home'">
-      <div class="height_config">
-        <app-home></app-home>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <app-menu (selectedPage)="changePage($event)" [currentPage]="page" *ngIf="page"
+              (closeSideNav)="close($event, sidenav)"></app-menu>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <div fxHide.gt-xs>
+        <button mat-icon-button (click)="toggleSideNav(sidenav)">
+        <mat-icon>menu</mat-icon>
+        </button>
       </div>
-    </ng-container>
 
-    <ng-container *ngSwitchCase="'appointmentbook'">
-      <div class="height_config">
-        <app-appointmentbook></app-appointmentbook>
+      <div>ElectroFix</div>
+      <div fxFlex fxLayout fxLayoutAlign="flex-end">
+        <ul fxLayout fxLayoutGap="10px" fxHide.xs class="nav-items">
+          <li><a [routerLink]="'/login'">Bejelentkezés</a></li>
+          <li><a [routerLink]="'/register'">Regisztráció</a></li>
+          <li><a [routerLink]="'/home'">Home</a></li>
+          <li><a [routerLink]="'/appointmentbook'">Időpontfoglalás</a></li>
+          <li><a [routerLink]="'/myappointments'">Időpontjaim</a></li>
+          <li><a [routerLink]="'/contacts'">Elérhetőségek</a></li>
+        </ul>
       </div>
-    </ng-container>
-
-    <ng-container *ngSwitchCase="'myappointments'">
-      <div class="height_config">
-        <app-myappointments></app-myappointments>
-      </div>
-    </ng-container>
-
-    <ng-container *ngSwitchCase="'contacts'">
-      <div class="height_config">
-        <app-contacts></app-contacts>
-      </div>
-    </ng-container>
-
-    <ng-container *ngSwitchDefault>
-      <h1>Page not found</h1>
-    </ng-container>
-
-  </ng-container>
-</ng-template> -->
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
 
 
-<router-outlet></router-outlet>

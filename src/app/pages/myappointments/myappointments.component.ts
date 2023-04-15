@@ -3,6 +3,7 @@ import {Appointment} from "../../shared/models/Appointment";
 import {AppointmentService} from "../../shared/services/appointment.service";
 import {User} from "../../shared/models/User";
 import {UserService} from "../../shared/services/user.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-myappointments',
@@ -14,7 +15,8 @@ export class MyappointmentsComponent implements OnInit{
   user?: User;
 
   constructor(private appointmentService: AppointmentService,
-              private userService: UserService) {
+              private userService: UserService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -46,5 +48,9 @@ export class MyappointmentsComponent implements OnInit{
     }).catch(error => {
       console.error(error);
     });
+  }
+
+  backToHome() {
+    this.router.navigateByUrl('/home');
   }
 }

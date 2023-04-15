@@ -66,4 +66,8 @@ export class AppointmentbookComponent implements OnInit{
       console.error('Minden mezo kotelezo');
     }
   }
+
+  backToHome() {
+    this.router.navigateByUrl('/home');
+  }
 }

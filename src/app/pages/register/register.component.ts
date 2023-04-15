@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { PhoneTypeList } from "../../shared/constants/values";
 import {FormControl, FormGroup} from "@angular/forms";
-import {Location} from "@angular/common";
 import {Router} from "@angular/router";
 import {AuthService} from "../../shared/services/auth.service";
 import {User} from  "../../shared/models/User";
@@ -18,7 +17,7 @@ export class RegisterComponent {
   phoneTypeList: Array<any> = PhoneTypeList;
   chosenPhoneType: any;
 
-  constructor(private location: Location, private router: Router, private authService: AuthService,
+  constructor(private router: Router, private authService: AuthService,
               private userService: UserService) {
     this.chosenPhoneType = this.phoneTypeList[0];
   }
@@ -84,7 +83,7 @@ export class RegisterComponent {
     }
   }
 
-  goBack() {
-    this.location.back();
+  backToLogin() {
+    this.router.navigateByUrl('/login');
   }
 }

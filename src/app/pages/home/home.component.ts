@@ -24,6 +24,18 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  toAppointmentBook() {
+    this.router.navigateByUrl('/appointmentbook');
+  }
+
+  toMyAppointments() {
+    this.router.navigateByUrl('/myappointments');
+  }
+
+  toContacts() {
+    this.router.navigateByUrl('/contacts');
+  }
+
   logout() {
     this.authService.logout().then(() => {
       console.log('Kijelentkezes megtortent.');

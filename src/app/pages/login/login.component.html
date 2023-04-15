@@ -1,8 +1,8 @@
 <div>
   <h1>Bejelentkezés</h1>
   <form [formGroup]="loginForm">
-    <input type="email" formControlName="email" placeholder="E-mail cím"/> <br/><br/>
-    <input type="password" formControlName="password" placeholder="Jelszó"/> <br/><br/>
+    <input formControlName="email" type="email" placeholder="E-mail cím"/> <br/><br/>
+    <input  formControlName="password" type="password" placeholder="Jelszó"/> <br/><br/>
     <button (click)="login()">Bejelentkezés</button> <br/><br/>
     <button [routerLink]="'/register'">Regisztráció</button>
   </form>

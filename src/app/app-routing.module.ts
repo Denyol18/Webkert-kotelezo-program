@@ -1,18 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {AuthGuard} from "./shared/services/auth.guard";
 
 const routes: Routes = [
   {
     path: 'appointmentbook',
-    loadChildren: () => import('./pages/appointmentbook/appointmentbook.module').then(m => m.AppointmentbookModule)
+    loadChildren: () => import('./pages/appointmentbook/appointmentbook.module').then(m => m.AppointmentbookModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'contacts',
-    loadChildren: () => import('./pages/contacts/contacts.module').then(m => m.ContactsModule)
+    loadChildren: () => import('./pages/contacts/contacts.module').then(m => m.ContactsModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
+    loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
@@ -20,7 +24,8 @@ const routes: Routes = [
   },
   {
     path: 'myappointments',
-    loadChildren: () => import('./pages/myappointments/myappointments.module').then(m => m.MyappointmentsModule)
+    loadChildren: () => import('./pages/myappointments/myappointments.module').then(m => m.MyappointmentsModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'register',

@@ -1,3 +1,15 @@
 <div>
   <h1>Időpontjaim</h1>
+  <table>
+    <tr>
+      <th>Eszköz</th>
+      <th>Dátum</th>
+      <th>Leírás</th>
+    </tr>
+    <tr *ngFor="let appointment of appointments">
+      <td>{{appointment.device}}</td>
+      <td>{{appointment.date}}</td>
+      <td>{{appointment.description}}</td>
+    </tr>
+  </table>
 </div>

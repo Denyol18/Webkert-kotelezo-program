@@ -17,8 +17,10 @@ export class HomeComponent implements OnInit {
     this.authService.isUserLoggedIn().subscribe(user => {
       console.log(user);
       this.loggedInUser = user;
+      localStorage.setItem('user', JSON.stringify(this.loggedInUser));
     }, error => {
       console.error(error);
+      localStorage.setItem('user', JSON.stringify('null'));
     });
   }
 

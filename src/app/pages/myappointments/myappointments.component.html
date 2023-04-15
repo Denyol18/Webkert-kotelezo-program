@@ -5,11 +5,14 @@
       <th>Eszköz</th>
       <th>Dátum</th>
       <th>Leírás</th>
+      <th>Szerkesztés</th>
     </tr>
-    <tr *ngFor="let appointment of appointments">
+    <tr *ngFor="let appointment of appointments; let i = index;" [ngClass]="i % 2 === 0 ? 'table-header-even' :
+    'table-header-odd'">
       <td>{{appointment.device}}</td>
       <td>{{appointment.date}}</td>
       <td>{{appointment.description}}</td>
+      <td><button (click)="toUrgent(appointment)">Sürgőssé jelölés</button> <button (click)="delete(appointment)">Törlés</button></td>
     </tr>
   </table>
 </div>

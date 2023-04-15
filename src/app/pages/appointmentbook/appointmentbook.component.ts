@@ -47,6 +47,7 @@ export class AppointmentbookComponent implements OnInit{
       console.log(this.appointmentForm.value);
 
       const appointmentToStore: Appointment = {
+        id: '',
         user: this.user as User,
         device: this.appointmentForm.get('device')?.value as string,
         date: this.appointmentForm.get('date')?.value as string,

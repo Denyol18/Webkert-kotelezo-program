@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-contacts',
@@ -7,10 +8,10 @@ import {Router} from "@angular/router";
   styleUrls: ['./contacts.component.scss']
 })
 export class ContactsComponent {
-  constructor(private router: Router) {
+  constructor(private router: Router, private location: Location) {
   }
 
-  backToHome() {
-    this.router.navigateByUrl('/home');
+  back() {
+    this.location.back();
   }
 }

@@ -33,7 +33,7 @@ export class RegisterComponent {
   });
 
 
-  async register() {
+  register() {
     if(this.registerForm.get('lastname')?.value && this.registerForm.get('firstname')?.value &&
       this.registerForm.get('email')?.value && this.registerForm.get('password')?.value &&
       this.registerForm.get('passwordconfirm')?.value && this.registerForm.get('phonenumber')?.value &&
@@ -56,24 +56,24 @@ export class RegisterComponent {
           }
 
           this.userService.create(userToStore).then(_ => {
-            console.log('User added.');
+            alert('Sikeres regisztráció!');
           }).catch(error => {
-            console.error(error);
+            alert(error);
           });
 
-          this.router.navigateByUrl('/login');
+          this.router.navigateByUrl('/home');
 
         }).catch(error => {
-          console.error(error);
+          alert(error);
         });
       }
 
       else {
-        console.error('Nem egyeznek a jelszavak!');
+        alert('Nem egyeznek a jelszavak!');
       }
     }
     else {
-      console.error('Minden mező kitöltése kötelező!');
+      alert('Minden mező kitöltése kötelező!');
     }
   }
 

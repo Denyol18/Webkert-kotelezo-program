@@ -19,7 +19,7 @@ export class LoginComponent {
   });
 
 
-  async login() {
+  login() {
     if(this.loginForm.get('email')?.value && this.loginForm.get('password')?.value) {
 
       this.authService.login(String(this.loginForm.get('email')?.value),
@@ -27,11 +27,11 @@ export class LoginComponent {
         console.log(cred);
         this.router.navigateByUrl('/home');
       }).catch(error => {
-        console.error(error);
+        alert(error);
       });
     }
     else {
-      console.error('Minden mező kitöltése kötelező!');
+      alert('Minden mező kitöltése kötelező!');
     }
   }
 

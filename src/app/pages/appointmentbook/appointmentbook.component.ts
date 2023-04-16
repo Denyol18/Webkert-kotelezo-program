@@ -64,15 +64,15 @@ export class AppointmentbookComponent implements OnInit{
       }
 
       this.appointmentService.create(appointmentToStore).then(_ => {
-        console.log('Appointment added.');
+        alert('Új időpont rögzítve!');
       }).catch(error => {
-        console.error(error);
+        alert(error);
       });
 
       this.router.navigateByUrl('/myappointments');
     }
     else {
-      console.error('Minden mezo kotelezo');
+      alert('Minden mező kitöltése kötelező!');
     }
   }
 

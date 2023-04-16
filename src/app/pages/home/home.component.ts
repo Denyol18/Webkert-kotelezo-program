@@ -25,12 +25,13 @@ export class HomeComponent {
     this.router.navigateByUrl('/contacts');
   }
 
-  async logout() {
+  logout() {
     this.authService.logout().then(() => {
-      console.log('Kijelentkezes megtortent.');
+      alert('Kijelentkezés sikeres.');
+      localStorage.clear();
       this.router.navigateByUrl('/login');
     }).catch(error => {
-      console.error(error);
+      alert(error);
     });
   }
 }

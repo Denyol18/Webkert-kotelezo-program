@@ -31,22 +31,22 @@ export class MyappointmentsComponent implements OnInit{
 
   toUrgent(appointment: Appointment) {
     if(appointment.description.includes('[SÜRGŐS]')) {
-      console.log('Ez az időpont már megvan jelölve sürgősnek!');
+      alert('Ez az időpont már megvan jelölve sürgősnek!');
     }
     else {
       this.appointmentService.update(appointment).then(_ => {
-        console.log('Appointment updated.');
+        alert('Sürgősség hozzáadva! Kollégáink a megadott időpont előtt felkeresik ez ügyben!');
       }).catch(error => {
-        console.error(error);
+        alert(error);
       });
     }
   }
 
   delete(appointment: Appointment) {
     this.appointmentService.delete(appointment.id).then(_ => {
-      console.log('Appointment deleted.');
+      alert('Időpont törölve!');
     }).catch(error => {
-      console.error(error);
+      alert(error);
     });
   }
 

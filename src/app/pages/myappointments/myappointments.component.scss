@@ -13,10 +13,14 @@ h1 {
   margin: 100px;
 }
 
+table {
+  width:70%;
+  margin-left:15%;
+  margin-right:15%;
+}
+
 table, th, td {
   border: 1px solid black;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 td > button {
@@ -29,4 +33,12 @@ td > button {
 
 .table-header-odd {
   background-color: mediumblue;
+}
+
+@media only screen and (max-width: 700px) {
+  table {
+    width:1%;
+    margin:1px;
+    position: relative;
+  }
 }

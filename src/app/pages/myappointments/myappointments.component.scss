@@ -36,9 +36,7 @@ td > button {
 }
 
 @media only screen and (max-width: 700px) {
-  table {
-    width:1%;
-    margin:1px;
-    position: relative;
+  table > tr {
+    word-break: break-word;
   }
 }

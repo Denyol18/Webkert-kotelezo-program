@@ -34,7 +34,7 @@ $electronics-service-theme: mat.define-dark-theme((
 @include mat.all-component-themes($electronics-service-theme);
 
 html, body {
-  height: 100%; font-size: 15px
+  height: 100%; font-size: 15px; background-color: rgb(56,52,52);
 }
 body {
   margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;

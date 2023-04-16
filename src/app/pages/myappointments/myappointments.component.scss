@@ -4,6 +4,11 @@ div {
   justify-content: center;
 }
 
+.main_component {
+  height: 100vh;
+  align-items: center;
+}
+
 h1 {
   margin: 100px;
 }
@@ -14,10 +19,14 @@ table, th, td {
   margin-right: auto;
 }
 
+td > button {
+  margin: 5px;
+}
+
 .table-header-even {
   background-color: deeppink;
 }
 
 .table-header-odd {
-  background-color: cyan;
+  background-color: mediumblue;
 }

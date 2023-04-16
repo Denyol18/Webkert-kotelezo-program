@@ -1,6 +1,7 @@
 <div class="main_component">
   <h1>Időpontjaim</h1>
-  <table>
+  <h1 *ngIf="appointmentNumber === 0">Önnek nincs időpontja!</h1>
+  <table *ngIf="appointmentNumber">
     <tr>
       <th>Eszköz</th>
       <th>Dátum</th>

@@ -13,6 +13,7 @@ import {Router} from "@angular/router";
 export class MyappointmentsComponent implements OnInit{
   appointments: Array<Appointment> = [];
   user?: User;
+  appointmentNumber?: number;
 
   constructor(private appointmentService: AppointmentService,
               private userService: UserService,
@@ -25,6 +26,7 @@ export class MyappointmentsComponent implements OnInit{
       this.user = data;
       this.appointmentService.getByUserId(this.user?.id as string).subscribe(data => {
         this.appointments = data;
+        this.appointmentNumber = this.appointments.length;
       });
     });
   }

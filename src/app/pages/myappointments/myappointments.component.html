@@ -12,7 +12,7 @@
     'table-header-odd'">
       <td>{{appointment.device}}</td>
       <td>{{appointment.date}}</td>
-      <td>{{appointment.description}}</td>
+      <td class="td_desc">{{appointment.description}}</td>
       <td><button mat-raised-button color="primary" (click)="toUrgent(appointment)">Sürgőssé jelölés</button>
         <button mat-raised-button color="primary" (click)="delete(appointment)">Törlés</button></td>
     </tr>

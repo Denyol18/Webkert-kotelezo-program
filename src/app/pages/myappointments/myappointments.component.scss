@@ -36,7 +36,7 @@ td > button {
 }
 
 @media only screen and (max-width: 700px) {
-  table > tr {
+  .td_desc {
     word-break: break-word;
   }
 }

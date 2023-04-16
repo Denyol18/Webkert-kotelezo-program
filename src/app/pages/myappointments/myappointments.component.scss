@@ -1,3 +1,5 @@
+$h1_margin: 100px;
+
 div {
   height: 100%;
   text-align: center;
@@ -10,7 +12,7 @@ div {
 }
 
 h1 {
-  margin: 100px;
+  margin: $h1_margin;
 }
 
 table {

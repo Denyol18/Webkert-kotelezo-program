@@ -1,4 +1,6 @@
 $formContentMargin: 10px;
+$h1_margin: 100px;
+
 
 div {
   height: 100%;
@@ -12,7 +14,7 @@ div {
 }
 
 h1 {
-  margin: 100px;
+  margin: $h1_margin;
 }
 
 input {

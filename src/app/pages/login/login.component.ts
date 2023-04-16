@@ -25,6 +25,7 @@ export class LoginComponent {
       this.authService.login(String(this.loginForm.get('email')?.value),
         String(this.loginForm.get('password')?.value)).then(cred => {
         console.log(cred);
+        alert('Bejelentkezés sikeres.');
         this.router.navigateByUrl('/home');
       }).catch(error => {
         alert(error);

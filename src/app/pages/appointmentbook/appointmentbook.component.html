@@ -10,11 +10,11 @@
 
     <mat-form-field>
       <mat-label>Válasszon időpontot!</mat-label>
-      <input matInput formControlName="date" placeholder="HH/NN/ÉÉÉÉ" [matDatepicker]="picker1" required>
+      <input matInput formControlName="date" [matDatepicker]="picker1" required>
       <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
       <mat-datepicker touchUi #picker1></mat-datepicker>
 
-      <input matInput formControlName="time" placeholder="AM: Délelőtt; PM: Délután" [ngxMatTimepicker]="picker2" required>
+      <input matInput formControlName="time" [ngxMatTimepicker]="picker2" [format]="24" required>
       <ngx-mat-timepicker-toggle matIconSuffix [for]="picker2"></ngx-mat-timepicker-toggle>
       <ngx-mat-timepicker #picker2></ngx-mat-timepicker>
 

@@ -21,7 +21,7 @@ export class AppointmentService {
 
   getByUserId(userId: string) {
     return this.afs.collection<Appointment>(this.collectionName, ref =>
-      ref.where(this.fieldPath, '==', userId)).valueChanges();
+      ref.where(this.fieldPath, '==', userId).orderBy('device')).valueChanges();
   }
 
   delete(id: string) {

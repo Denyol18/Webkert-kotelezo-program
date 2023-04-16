@@ -7,6 +7,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 })
 export class MenuComponent {
     @Input() currentPage: string = '';
+    @Input() loggedInUser?: firebase.default.User | null;
     @Output() selectedPage: EventEmitter<string> = new EventEmitter<string>();
     @Output() closeSideNav: EventEmitter<boolean> = new EventEmitter<boolean>();
 

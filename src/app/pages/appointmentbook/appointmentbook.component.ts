@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { DeviceList } from "../../shared/constants/values";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, UntypedFormControl} from "@angular/forms";
 import {Router} from "@angular/router";
 import {Appointment} from "../../shared/models/Appointment";
 import {AuthService} from "../../shared/services/auth.service";
@@ -18,6 +18,8 @@ export class AppointmentbookComponent implements OnInit{
   deviceList: Array<any> = DeviceList;
   chosenDevice: any;
   user?: User;
+  datetime?: string;
+  dateString?: string;
 
   constructor(private authService: AuthService,
               private router: Router,
@@ -36,13 +38,20 @@ export class AppointmentbookComponent implements OnInit{
 
   appointmentForm = new FormGroup({
     device: new FormControl(''),
-    date: new FormControl(''),
+    date: new UntypedFormControl(''),
+    time: new FormControl(''),
     description: new FormControl('')
   })
 
+
   bookAppointment() {
     if(this.appointmentForm.get('date')?.value &&
-      this.appointmentForm.get('description')?.value) {
+      this.appointmentForm.get('time')?.value && this.appointmentForm.get('description')?.value) {
+
+      this.dateString = new Date(this.appointmentForm.get('date')?.value).toDateString();
+
+      this.datetime = this.dateString + ' '
+        + this.appointmentForm.get('time')?.value
 
       console.log(this.appointmentForm.value);
 
@@ -50,7 +59,7 @@ export class AppointmentbookComponent implements OnInit{
         id: '',
         user: this.user as User,
         device: this.appointmentForm.get('device')?.value as string,
-        date: this.appointmentForm.get('date')?.value as unknown as Date,
+        date: this.datetime,
         description: this.appointmentForm.get('description')?.value as string
       }
 

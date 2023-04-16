@@ -1,21 +1,21 @@
 <mat-nav-list>
-    <a mat-list-item [routerLink]="'/login'" (click)="close()">
+    <a *ngIf="!(loggedInUser)" mat-list-item [routerLink]="'/login'" (click)="close()">
       <mat-icon>login</mat-icon>
       <span>Bejelentkezés</span>
     </a>
-    <a mat-list-item [routerLink]="'/register'" (click)="close()">
+    <a *ngIf="!(loggedInUser)" mat-list-item [routerLink]="'/register'" (click)="close()">
       <mat-icon>app_registration</mat-icon>
       <span>Regisztráció</span>
     </a>
-    <a mat-list-item [routerLink]="'/home'" (click)="close()">
+    <a *ngIf="(loggedInUser)" mat-list-item [routerLink]="'/home'" (click)="close()">
       <mat-icon>home</mat-icon>
       <span>Home</span>
     </a>
-    <a mat-list-item [routerLink]="'/appointmentbook'" (click)="close()">
+    <a *ngIf="(loggedInUser)" mat-list-item [routerLink]="'/appointmentbook'" (click)="close()">
       <mat-icon>calendar_month</mat-icon>
       <span>Időpontfoglalás</span>
     </a>
-    <a mat-list-item [routerLink]="'/myappointments'" (click)="close()">
+    <a *ngIf="(loggedInUser)" mat-list-item [routerLink]="'/myappointments'" (click)="close()">
       <mat-icon>edit_calendar</mat-icon>
       <span>Időpontjaim</span>
     </a>
@@ -24,12 +24,3 @@
       <span>Elérhetőségek</span>
     </a>
 </mat-nav-list>
-
-<!-- <select [(ngModel)]="currentPage" (change)="menuSwitch()">
-  <option value="login">Bejelentkezés</option>
-  <option value="register">Regisztráció</option>
-  <option value="home">Home</option>
-  <option value="appointmentbook">Időpontfoglalás</option>
-  <option value="myappointments">Időpontjaim</option>
-  <option value="contacts">Elérhetőségek</option>
-</select> -->

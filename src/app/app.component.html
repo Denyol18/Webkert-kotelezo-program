@@ -1,7 +1,7 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav>
     <app-menu (selectedPage)="changePage($event)" [currentPage]="page" *ngIf="page"
-              (closeSideNav)="close($event, sidenav)"></app-menu>
+              (closeSideNav)="close($event, sidenav)" [loggedInUser]="loggedInUser"></app-menu>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
@@ -14,11 +14,11 @@
       <div>ElectroFix</div>
       <div fxFlex fxLayout fxLayoutAlign="flex-end">
         <ul fxLayout fxLayoutGap="10px" fxHide.xs class="nav-items">
-          <li><a [routerLink]="'/login'">Bejelentkezés</a></li>
-          <li><a [routerLink]="'/register'">Regisztráció</a></li>
-          <li><a [routerLink]="'/home'">Home</a></li>
-          <li><a [routerLink]="'/appointmentbook'">Időpontfoglalás</a></li>
-          <li><a [routerLink]="'/myappointments'">Időpontjaim</a></li>
+          <li *ngIf="!(loggedInUser)"><a [routerLink]="'/login'">Bejelentkezés</a></li>
+          <li *ngIf="!(loggedInUser)"><a [routerLink]="'/register'">Regisztráció</a></li>
+          <li *ngIf="(loggedInUser)"><a [routerLink]="'/home'">Home</a></li>
+          <li *ngIf="(loggedInUser)"><a [routerLink]="'/appointmentbook'">Időpontfoglalás</a></li>
+          <li *ngIf="(loggedInUser)"><a [routerLink]="'/myappointments'">Időpontjaim</a></li>
           <li><a [routerLink]="'/contacts'">Elérhetőségek</a></li>
         </ul>
       </div>

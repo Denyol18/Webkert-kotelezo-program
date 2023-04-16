@@ -12,7 +12,6 @@ import {UserService} from "../../shared/services/user.service";
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-  loggedInUser?: firebase.default.User | null;
 
   phoneTypeList: Array<any> = PhoneTypeList;
   chosenPhoneType: any;
@@ -34,7 +33,7 @@ export class RegisterComponent {
   });
 
 
-  register() {
+  async register() {
     if(this.registerForm.get('lastname')?.value && this.registerForm.get('firstname')?.value &&
       this.registerForm.get('email')?.value && this.registerForm.get('password')?.value &&
       this.registerForm.get('passwordconfirm')?.value && this.registerForm.get('phonenumber')?.value &&
@@ -43,6 +42,7 @@ export class RegisterComponent {
       if(this.registerForm.get('password')?.value === this.registerForm.get('passwordconfirm')?.value) {
         this.authService.register(String(this.registerForm.get('email')?.value),
           String(this.registerForm.get('password')?.value)).then(cred => {
+
           console.log(cred);
 
           const userToStore: User = {
@@ -54,20 +54,14 @@ export class RegisterComponent {
             phonetype: this.registerForm.get('phonetype')?.value as string,
             address: this.registerForm.get('address')?.value as string
           }
+
           this.userService.create(userToStore).then(_ => {
             console.log('User added.');
           }).catch(error => {
             console.error(error);
           });
 
-          this.authService.isUserLoggedIn().subscribe(user => {
-            this.loggedInUser = user;
-            localStorage.setItem('user', JSON.stringify(this.loggedInUser));
-            this.router.navigateByUrl('/home');
-          }, error => {
-            console.error(error);
-            localStorage.setItem('user', JSON.stringify('null'));
-          });
+          this.router.navigateByUrl('/login');
 
         }).catch(error => {
           console.error(error);
